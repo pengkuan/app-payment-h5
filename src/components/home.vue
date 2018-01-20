@@ -88,7 +88,7 @@ export default {
             // 语音验证码相关
             video_code_show: false,
             video_code_show_tit: true,
-            video_code_text_count: '60S后重试',
+            video_code_text_count: '60s后重试',
             get_video_code_text: '获取语音验证码',
 
             // 接口参数
@@ -194,7 +194,7 @@ export default {
             this.msgTipShow = false
         },
         // 获取短信验证码
-        get_code() {
+        get_code() { 
             if (!/^1[3|4|5|7|8]\d{9}$/.test(this.phone)) {
                 this.$message('请输入正确手机号')
                 return
@@ -207,7 +207,7 @@ export default {
             let count = 60
             timer = setInterval(() => {
                 count--
-                this.get_code_text = count + 'S'
+                this.get_code_text = count + 's'
                 if (count == 0) {
                     clearInterval(timer)
                     this.get_code_text = '再次获取验证码'
@@ -221,11 +221,11 @@ export default {
             let count = 60
             timer = setInterval(() => {
                 count--
-                this.video_code_text_count = count + 'S后重试'
+                this.video_code_text_count = count + 's后重试'
                 if (count == 0) {
                     clearInterval(timer)
                     this.get_video_code_text = '再次获取语音验证码'
-                    this.video_code_text_count = '60S后重试'
+                    this.video_code_text_count = '60s后重试'
                     this.video_code_show_tit = true
                     this.video_code_show = false
                 }
@@ -240,7 +240,7 @@ export default {
             this.msgTipShow = true
         },
         //获取语音验证码，并点击接收按钮
-        click_ok() {
+        click_ok() { 
             this.msgTipShow = false
             this.get_code_interface('2')
         },
@@ -296,7 +296,7 @@ export default {
                 // 接口请求回来再倒计时，同一类型接口55秒重复点是会报错的
                 // 接口请求成功事件和收到短信的时间不一样
                 if (type == '1') {
-                    this.get_code_text = '60S'
+                    this.get_code_text = '60s'
                     this.get_code_disable = true
                     this.count_down()
                 } else if (type == '2') {
