@@ -195,7 +195,7 @@ export default {
         },
         // 获取短信验证码
         get_code() { 
-            if (!/^1[3|4|5|7|8]\d{9}$/.test(this.phone)) {
+            if (!/^1\d{10}$/.test(this.phone)) {
                 this.$message('请输入正确手机号')
                 return
             }
@@ -233,7 +233,7 @@ export default {
         },
         // 获取语音验证码
         get_video_code_ways() {
-            if (!/^1[3|4|5|7|8]\d{9}$/.test(this.phone)) {
+            if (!/^1\d{10}$/.test(this.phone)) {
                 this.$message('请输入正确手机号')
                 return
             }
