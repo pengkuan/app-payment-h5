@@ -113,8 +113,7 @@ export default {
     },
     methods: {
         getMoney() {
-
-            if (!/^1[3|4|5|7|8]\d{9}$/.test(this.phone)) {
+            if (!/^1\d{10}$/.test(this.phone)) {
                 this.$message('请输入正确手机号')
                 return
             }
@@ -122,6 +121,7 @@ export default {
                 this.$message('请输入6位验证码')
                 return
             }
+            if(this.loadingFullscreen) return //防止loading还未渲染，按钮点击多次
             this.loadingFullscreen = true
 
             console.log('开始请求付款接口')
